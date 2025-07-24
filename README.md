@@ -40,7 +40,9 @@ The model can be customized to optimize for different nutritional goals or combi
 - Or a weighted scoring system (e.g. 70% protein, 30% fiber)
 
 > 💡 **Note**: Nutritional efficiency is measured per 100g, which may over- or underrepresent foods typically consumed in smaller or larger portions. Future work may adjust for realistic serving sizes to refine scoring metrics.
+
 > 📌 **Protein Requirement Note**: The optimizer does not currently enforce a minimum protein threshold. However, a future interactive version may allow users to input their own body weight and activity level, calculating an individualized protein goal (e.g. 1.6–2.2g/kg body weight for active individuals).
+
 > 📈 `protein_density` is scaled by 100 for readability and relative comparison. A density of 0.25 means 25g of protein per 100 kcal.
 
 ## Algorithm
