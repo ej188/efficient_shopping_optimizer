@@ -1,7 +1,9 @@
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![Status](https://img.shields.io/badge/status-complete-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-complete-success)
 ![Jupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ej188/efficient_shopping_optimizer/HEAD?filepath=notebooks/efficient_shopping_optimizer.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ej188/efficient_shopping_optimizer/blob/master/notebooks/efficient_shopping_optimizer.ipynb)
 
 # Efficient Shopping Optimizer 🛒
 
