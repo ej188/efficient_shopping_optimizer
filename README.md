@@ -46,12 +46,6 @@ The model can be customized to optimize for different nutritional goals or combi
 The problem is solved using the **0-1 Knapsack algorithm**, which is suitable for binary decisions (either include the item or not).  
 In future iterations, extensions like the **bounded knapsack** or **multi-objective optimization** can be applied.
 
-## Next Steps
-
-- Refine dataset (realistic prices, nutritional info, serving sizes)
-- Implement optimization model
-- Build UI or CLI to make the tool interactive
-
 ## Results
 
 The final optimizer produces a budget-friendly and protein-rich shopping list that:
@@ -113,6 +107,12 @@ efficient-shopping-optimizer/
 │
 └── README.md
 ```
+
+## Next Steps
+
+- Refine dataset (realistic prices, nutritional info, serving sizes)
+- Implement optimization model
+- Build UI or CLI to make the tool interactive
 
 ## How to Run
 
