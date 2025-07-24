@@ -120,7 +120,7 @@ efficient-shopping-optimizer/
 
 1. Install dependencies:
 ```bash
-pip install pandas pulp matplotlib seaborn
+pip install -r requirements.txt
 ```
 
 2. Run the notebook:
