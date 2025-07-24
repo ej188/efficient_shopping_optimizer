@@ -97,8 +97,7 @@ efficient-shopping-optimizer/
 │
 ├── data/
 │   ├── efficient_shopping_optimizer_data.csv
-│   ├── efficient_shopping_optimizer.xlsx
-│   └── requirements.txt
+│   └── efficient_shopping_optimizer.xlsx
 │
 ├── figures/
 │   ├── item_category_breakdown.png
@@ -107,7 +106,9 @@ efficient-shopping-optimizer/
 ├── notebooks/
 │   └── efficient_shopping_optimizer.ipynb
 │
-└── README.md
+├── README.md
+│
+└── requirements.txt
 ```
 
 ## Next Steps
