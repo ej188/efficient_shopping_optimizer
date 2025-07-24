@@ -32,6 +32,10 @@ The model can be customized to optimize for different nutritional goals or combi
 - **Calories per dollar**
 - Or a weighted scoring system (e.g. 70% protein, 30% fiber)
 
+> 💡 **Note**: Nutritional efficiency is measured per 100g, which may over- or underrepresent foods typically consumed in smaller or larger portions. Future work may adjust for realistic serving sizes to refine scoring metrics.
+> 📌 **Protein Requirement Note**: The optimizer does not currently enforce a minimum protein threshold. However, a future interactive version may allow users to input their own body weight and activity level, calculating an individualized protein goal (e.g. 1.6–2.2g/kg body weight for active individuals).
+> 📈 `protein_density` is scaled by 100 for readability and relative comparison. A density of 0.25 means 25g of protein per 100 kcal.
+
 ## Algorithm
 
 The problem is solved using the **0-1 Knapsack algorithm**, which is suitable for binary decisions (either include the item or not).  
@@ -43,4 +47,56 @@ In future iterations, extensions like the **bounded knapsack** or **multi-object
 - Implement optimization model
 - Build UI or CLI to make the tool interactive
 
+## Results
+
+The final optimizer produces a budget-friendly and protein-rich shopping list that:
+
+- Respects a fixed budget (e.g. **$120**)
+- Satisfies nutritional constraints (e.g. **≥3500g protein/month**)
+- Avoids monotony (e.g. no more than 4 of the same item)
+- Ensures diversity (e.g. ≥2 protein sources, ≥1 vegetable, ≥1 fruit)
+
+**Example Output (Store → Category → Item):**
+
+```
+ALDI:
+  protein:
+    - Chicken Breast x2 | $9.98 | Score: 38.2
+    - Salmon Fillet x1  | $7.49 | Score: 26.4
+  vegetables:
+    - Carrot x1         | $1.29 | Score: 4.3
+...
+
+💵 Total Cost: $119.82  
+💪 Total Weighted Protein Score: 183.5
+```
+
+> 🔧 Want to try your own constraints? Modify the Jupyter notebook `efficient_shopping_optimizer.ipynb` to fit your diet and preferences!
+
 ## File Structure
+
+```
+efficient-shopping-optimizer/
+│
+├── notebooks/
+│   └── efficient_shopping_optimizer.ipynb   # Main optimization logic and output
+│
+├── data/
+│   └── efficient_shopping_optimizer_data.csv   # Cleaned grocery data
+│
+├── images/
+│   └── example_output.png   # (Optional) Screenshot of terminal output
+│
+└── README.md
+```
+
+## How to Run
+
+1. Install dependencies:
+```bash
+pip install pandas pulp matplotlib seaborn
+```
+
+2. Run the notebook:
+- Open `notebooks/efficient_shopping_optimizer.ipynb`
+- Execute all cells
