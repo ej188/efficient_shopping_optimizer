@@ -119,13 +119,18 @@ efficient-shopping-optimizer/
 - Implement optimization model
 - Build UI or CLI to make the tool interactive
 
-## How to Run
+## How to Run (Python 3.10+ needed!)
 
-1. Install dependencies:
-```bash
+# 1. Clone the repository
+git clone https://github.com/ej188/efficient_shopping_optimizer.git
+cd efficient_shopping_optimizer
+
+# 2. (Optional) Create and activate a virtual environment
+python3 -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# 3. Install required packages
 pip install -r requirements.txt
-```
 
-2. Run the notebook:
-- Open `notebooks/efficient_shopping_optimizer.ipynb`
-- Execute all cells
+# 4. Launch the notebook
+jupyter notebook notebooks/efficient_shopping_optimizer.ipynb
