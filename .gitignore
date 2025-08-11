@@ -15,9 +15,5 @@ src/**/__pycache__/
 # Virtual environment
 venv/
 
-# Data archives and generated outputs
-data/archive/
-data/outputs/
-
 # Figures (if generated automatically)
 # figures/
