@@ -1,96 +1,35 @@
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Status](https://img.shields.io/badge/status-complete-success)
-![Jupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ej188/efficient_shopping_optimizer/HEAD?filepath=notebooks/efficient_shopping_optimizer.ipynb)
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ej188/efficient_shopping_optimizer/blob/master/notebooks/efficient_shopping_optimizer.ipynb)
+![Status](https://img.shields.io/badge/status-in--progress-yellow)
 
 # Efficient Shopping Optimizer 🛒
 
 ## Overview
 
-This project is a data-driven attempt to optimize grocery purchases for individuals who are both health-conscious and budget-aware. As someone who deeply values efficiency in both time and spending, I wanted to explore how computational methods—particularly **optimization algorithms**—can help us make better decisions in our everyday lives.
+This project is now a Streamlit-based grocery basket optimizer that uses a pre-loaded CSV file (`eso_new_ver1.csv`) containing cleaned and updated price and nutrition data. The app provides an interactive interface for users to optimize their grocery basket efficiently without the need for multiple notebooks.
 
 ## Objective
 
-Build a simple but effective tool that helps users select the best combination of grocery items under a fixed budget, **maximizing nutritional value** while minimizing cost.  
-The project reflects my own dietary goals: protein-focused, clean eating, with minimal reliance on processed snacks.
-
-## Problem Definition
-
-Many grocery shoppers struggle to balance nutrition with affordability. For someone following a specific meal plan, it's often unclear which combination of items gives the best value for money while meeting dietary goals.
-
-This project formulates the problem as a **0-1 Knapsack Optimization Problem**:
-- Each food item has:
-  - a **cost** (price per unit),
-  - a **value** (e.g. grams of protein),
-  - and a **category** (protein, carb, vegetable, etc.).
-- The goal is to **maximize total nutritional value** (e.g. total protein intake) while staying within a budget.
-
-## My Role and Motivation
-
-As someone driven by efficiency in both time and cost, I wanted to quantify and automate decisions I used to make intuitively. This project bridges my background in **mathematics, statistics, and data science** with my personal interest in health and finance.
+The app helps users select the best combination of grocery items within a fixed budget through an interactive UI. Users can adjust weights and constraints to tailor the optimization according to their nutritional and financial goals.
 
 ## Optimization Focus
 
-The model can be customized to optimize for different nutritional goals or combinations such as:
-- **Protein per dollar** (primary focus)
-- **Fiber per dollar**
-- **Calories per dollar**
-- Or a weighted scoring system (e.g. 70% protein, 30% fiber)
-
-> 💡 **Note**: Nutritional efficiency is measured per 100g, which may over- or underrepresent foods typically consumed in smaller or larger portions. Future work may adjust for realistic serving sizes to refine scoring metrics.
-
-> 📌 **Protein Requirement Note**: The optimizer does not currently enforce a minimum protein threshold. However, a future interactive version may allow users to input their own body weight and activity level, calculating an individualized protein goal (e.g. 1.6–2.2g/kg body weight for active individuals).
-
-> 📈 `protein_density` is scaled by 100 for readability and relative comparison. A density of 0.25 means 25g of protein per 100 kcal.
+The scoring system is customizable and implemented directly in Python and Streamlit, allowing optimization for various macronutrient goals beyond just protein. The current dataset supports multiple nutritional targets, enabling flexible prioritization such as fiber, calories, fats, or combined weighted scores.
 
 ## Algorithm
 
-The problem is solved using the **0-1 Knapsack algorithm**, which is suitable for binary decisions (either include the item or not).  
-In future iterations, extensions like the **bounded knapsack** or **multi-objective optimization** can be applied.
+The optimization uses a greedy selection approach with the option to include multiple quantities per item. This method balances efficiency and user flexibility in constructing an optimal grocery basket.
 
 ## Results
 
-The final optimizer produces a budget-friendly and protein-rich shopping list that:
+The optimizer produces tailored shopping lists based on user-selected budgets and preferences. Users can download the resulting basket as a CSV file directly from the app.
 
-- Respects a fixed budget (e.g. **$120**)
-- Satisfies nutritional constraints (e.g. **≥3500g protein/month**)
-- Avoids monotony (e.g. no more than 4 of the same item)
-- Ensures diversity (e.g. ≥2 protein sources, ≥1 vegetable, ≥1 fruit)
+## Data Sources
 
-**Example Output (Store → Category → Item):**
-
-```
-ALDI:
-  protein:
-    - Chicken Breast x2 | $9.98 | Score: 38.2
-    - Salmon Fillet x1  | $7.49 | Score: 26.4
-  vegetables:
-    - Carrot x1         | $1.29 | Score: 4.3
-...
-
-💵 Total Cost: $119.82  
-💪 Total Weighted Protein Score: 183.5
-```
-
-> 🔧 Want to try your own constraints? Modify the Jupyter notebook `efficient_shopping_optimizer.ipynb` to fit your diet and preferences!
-
-## Visualizations
-
-Below are two supporting plots generated by the optimizer:
-
-<p align="center">
-  <img src="figures/item_category_breakdown.png" alt="Item Category Breakdown" width="500" />
-  <br>
-  <em>Figure 1. Distribution of selected items by category</em>
-</p>
-
-<p align="center">
-  <img src="figures/protein_per_dollar.png" alt="Protein per Dollar" width="500" />
-  <br>
-  <em>Figure 2. Protein contribution per dollar for each selected item</em>
-</p>
+- USDA FoodData Central: https://fdc.nal.usda.gov/
+- NOAA Fisheries: https://www.fisheries.noaa.gov/
+- Bureau of Labor Statistics: https://www.bls.gov/cpi/
+- Agricultural Marketing Service: https://www.ams.usda.gov/market-news
 
 ## File Structure
 
@@ -98,26 +37,24 @@ Below are two supporting plots generated by the optimizer:
 efficient-shopping-optimizer/
 │
 ├── data/
-│   ├── efficient_shopping_optimizer_data.csv
-│   └── efficient_shopping_optimizer.xlsx
+│   └── eso_new_ver1.csv
 │
 ├── figures/
-│   ├── item_category_breakdown.png
-│   └── protein_per_dollar.png
 │
-├── notebooks/
-│   └── efficient_shopping_optimizer.ipynb
+├── src/
+│   ├── app.py
+│   └── optimizer_core.py
 │
 ├── README.md
-│
-└── requirements.txt
+├── ACKNOWLEDGEMENTS.md
+├── requirements.txt
+└── .gitignore
 ```
 
-## Next Steps
+## Acknowledgements
 
-- Refine dataset (realistic prices, nutritional info, serving sizes)
-- Implement optimization model
-- Build UI or CLI to make the tool interactive
+Special thanks to the USDA FoodData Central, NOAA Fisheries, Bureau of Labor Statistics, and USDA Agricultural Marketing Service for providing the primary datasets used in this project.  
+For a full list of data sources and details on how they were used, see [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md).
 
 ## How to Run (Python 3.10+ needed!)
 
@@ -132,5 +69,15 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 ### 3. Install required packages
 pip install -r requirements.txt
 
-### 4. Launch the notebook
-jupyter notebook notebooks/efficient_shopping_optimizer.ipynb
+### 3.5 (Optional) Quick dependency check
+From a clean terminal/venv, verify the core libs import and Streamlit can launch:
+```bash
+python -c "import streamlit, pandas, numpy; print('deps ok')"
+python -c "import src.optimizer_core as m; print('core ok')"
+# Optional: Streamlit's built‑in demo
+streamlit hello
+```
+You should see `deps ok` and `core ok` printed. The `streamlit hello` command should open a demo page in your browser.
+
+### 4. Run the Streamlit app
+streamlit run src/app.py

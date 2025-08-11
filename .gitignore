@@ -1,15 +1,23 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+src/**/__pycache__/
+
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# Python bytecode
-__pycache__/
-*.py[cod]
-
-# System files
+# macOS system files
 .DS_Store
 
 # VS Code settings
-.vscode/data/requirements.txt
+.vscode/
 
-# venv
+# Virtual environment
 venv/
+
+# Data archives and generated outputs
+data/archive/
+data/outputs/
+
+# Figures (if generated automatically)
+# figures/
