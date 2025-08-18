@@ -59,15 +59,21 @@ For a full list of data sources and details on how they were used, see [ACKNOWLE
 ## How to Run (Python 3.10+ needed!)
 
 ### 1. Clone the repository
+```bash
 git clone https://github.com/ej188/efficient_shopping_optimizer.git
 cd efficient_shopping_optimizer
+```
 
 ### 2. (Optional) Create and activate a virtual environment
-python3 -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+```
 
 ### 3. Install required packages
+```bash
 pip install -r requirements.txt
+```
 
 ### 3.5 (Optional) Quick dependency check
 From a clean terminal/venv, verify the core libs import and Streamlit can launch:
@@ -80,4 +86,6 @@ streamlit hello
 You should see `deps ok` and `core ok` printed. The `streamlit hello` command should open a demo page in your browser.
 
 ### 4. Run the Streamlit app
+```bash
 streamlit run src/app.py
+```
