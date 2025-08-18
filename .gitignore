@@ -14,7 +14,6 @@ src/**/__pycache__/
 
 # Virtual environment
 .venv/
-venv/
 
 # Figures (if generated automatically)
 # figures/
