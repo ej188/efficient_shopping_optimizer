@@ -13,6 +13,7 @@ src/**/__pycache__/
 .vscode/
 
 # Virtual environment
+.venv/
 venv/
 
 # Figures (if generated automatically)
